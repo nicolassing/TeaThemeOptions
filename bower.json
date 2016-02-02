@@ -1,0 +1,44 @@
+{
+  "name": "tea-theme-options",
+  "version": "3.3.0",
+  "homepage": "https://github.com/crewstyle/TeaThemeOptions",
+  "authors": [
+    "Achraf Chouk <achrafchouk@gmail.com>"
+  ],
+  "description": "The Tea Theme Options allows you to easily add professional looking theme options panels to your WordPress website.",
+  "main": [
+    "assets/css/teato.min.css",
+    "assets/js/teato.min.js"
+  ],
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "wordpress",
+    "plugin",
+    "teathemeoptions",
+    "themeoptions",
+    "tea",
+    "tto",
+    "teato",
+    "theme",
+    "options"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "codemirror": "codemirror/CodeMirror#~4.12.0",
+    "fontawesome": "FortAwesome/Font-Awesome#~4.4.0",
+    "leaflet": "leaflet/leaflet#~0.7.3",
+    "pickadate": "amsul/pickadate.js#~3.5.4",
+    "selectize": "brianreavis/selectize.js#~0.12.0",
+    "handlebars": "~4.0.3"
+  }
+}
