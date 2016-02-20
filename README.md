@@ -11,9 +11,9 @@
 **The goal of the Tea Theme Options team is to work actively on the project of the same name.**  
 Here are all the links you need:
 
-[Salt Bountysource page](https://salt.bountysource.com/teams/tea-theme-options)  
-[Bountysource page](https://www.bountysource.com/teams/tea-theme-options)  
-[Documentation](https://tea-theme-options.readme.io/)
+[Salt Bountysource page](https://salt.bountysource.com/teams/olympus)  
+[Bountysource page](https://www.bountysource.com/teams/olympus)  
+[Documentation](https://olympus.readme.io/)
 
 ---
 
@@ -39,7 +39,7 @@ The **Tea T.O. Core** works has deeply integrated ElasticSearch search engine fe
 
 ### Documentation
 
-[To learn more about the Tea Theme Options, read the docs](http://tea-theme-options.readme.io/).  
+[To learn more about the Tea Theme Options, read the docs](http://olympus.readme.io/).  
 The Tea T.O. uses [ReadMe.io](https://readme.io) which was built entirely on Open Source projects.
 
 ---
