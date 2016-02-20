@@ -25,7 +25,7 @@ if (!defined('TTO_CONTEXT')) {
  * @package Tea Theme Options
  * @subpackage Core\PostType\Hook\Hook
  * @author Achraf Chouk <achrafchouk@gmail.com>
- * @since 3.3.0
+ * @since 3.3.3
  *
  */
 class Hook
@@ -206,7 +206,7 @@ class Hook
      *
      * @uses add_meta_box()
      *
-     * @since 3.3.0
+     * @since 3.3.3
      */
     public function hookFieldsDisplay()
     {
@@ -221,8 +221,19 @@ class Hook
             $post = isset($_GET['post']) ? $_GET['post'] : 0;
             $slug = !empty($post) ? get_post_type($post) : '';
 
+            //Define pagenow var
             if (empty($slug)) {
-                return;
+                global $pagenow;
+
+                if ('post-new.php' === $pagenow) {
+                    $slug = 'post';
+                }
+                else if ('media-new.php' === $pagenow) {
+                    $slug = 'attachment';
+                }
+                else {
+                    return;
+                }
             }
         }
 

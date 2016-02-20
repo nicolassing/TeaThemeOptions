@@ -4,6 +4,7 @@ namespace crewstyle\TeaThemeOptions\Plugins\Search\Engine;
 
 use crewstyle\TeaThemeOptions\TeaThemeOptions;
 use crewstyle\TeaThemeOptions\Plugins\Search\Elastica\Elastica;
+use crewstyle\TeaThemeOptions\Plugins\Search\Search;
 
 /**
  * TTO SEARCH ENGINE
@@ -24,7 +25,7 @@ if (!defined('TTO_CONTEXT')) {
  * @package Tea Theme Options
  * @subpackage Plugins\Search\Engine\Engine
  * @author Achraf Chouk <achrafchouk@gmail.com>
- * @since 3.0.0
+ * @since 3.3.3
  *
  */
 class Engine
@@ -45,12 +46,18 @@ class Engine
      * @param array $configs Contains all Search Engine configurations
      * @param boolean $hook Define if we have to use hooks or not
      *
-     * @since 3.0.0
+     * @since 3.3.3
      */
     public function __construct($configs, $hook)
     {
         //Initialize Elastica
         $this->engine = new Elastica($configs);
+        $status = TeaThemeOptions::getConfigs(Search::getIndex().'-status', 0);
+
+        //Check global status
+        if (200 !== $status) {
+            return;
+        }
 
         //Check index
         if ($hook && isset($configs['status']) && 200 == $configs['status']) {

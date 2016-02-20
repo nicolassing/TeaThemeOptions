@@ -1,3 +1,7 @@
+## 3.3.3 (February 20, 2016)
+Fix bug with custom field on post and attachment.
+Fix bug with an auto-enabled ElasticSearch engine.
+
 ## 3.3.2 (January 11, 2015)
 Make the package a plugin from composer.
 

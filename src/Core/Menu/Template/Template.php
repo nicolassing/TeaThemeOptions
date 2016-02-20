@@ -24,7 +24,7 @@ if (!defined('TTO_CONTEXT')) {
  * @package Tea Theme Options
  * @subpackage Core\Menu\Template\Template
  * @author Achraf Chouk <achrafchouk@gmail.com>
- * @since 3.3.0
+ * @since 3.3.3
  *
  */
 class Template
@@ -193,7 +193,7 @@ class Template
     /**
      * Build header layout.
      *
-     * @since 3.3.0
+     * @since 3.3.3
      */
     protected function tplVars()
     {
@@ -248,21 +248,6 @@ class Template
         $urls['version'] = array(
             'url' => '',
             'label' => sprintf('<code><small><b>v%s</b></small></code>', TTO_VERSION),
-            'target' => '_blank',
-        );
-        $urls['documentation'] = array(
-            'url' => 'https://tea-theme-options.readme.io',
-            'label' => TeaThemeOptions::__('Documentation'),
-            'target' => '_blank',
-        );
-        $urls['support'] = array(
-            'url' => 'https://tea-theme-options.readme.io/discuss',
-            'label' => TeaThemeOptions::__('Support'),
-            'target' => '_blank',
-        );
-        $urls['teato'] = array(
-            'url' => 'https://teato.me',
-            'label' => TeaThemeOptions::__('TeaTO.me'),
             'target' => '_blank',
         );
 
