@@ -1,3 +1,6 @@
+## 3.3.4 (February 22, 2016)
+Enable hook on frontend website.
+
 ## 3.3.3 (February 20, 2016)
 Fix bug with custom field on post and attachment.
 Fix bug with an auto-enabled ElasticSearch engine.

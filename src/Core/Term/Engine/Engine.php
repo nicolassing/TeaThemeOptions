@@ -24,7 +24,7 @@ if (!defined('TTO_CONTEXT')) {
  * @package Tea Theme Options
  * @subpackage Core\Term\Engine\Engine
  * @author Achraf Chouk <achrafchouk@gmail.com>
- * @since 3.3.0
+ * @since 3.3.4
  *
  */
 class Engine
@@ -67,15 +67,10 @@ class Engine
      * @param array $configs Array containing all configurations
      * @param array $contents Contains all data
      *
-     * @since 3.1.0
+     * @since 3.3.4
      */
     public function addTerm($configs = array())
     {
-        //Admin panel
-        if (!TTO_IS_ADMIN) {
-            return;
-        }
-
         //Check if we are in admin panel
         if (empty($configs) || !isset($configs['slug']) || empty($configs['slug'])) {
             return;
@@ -99,15 +94,10 @@ class Engine
      *
      * @uses add_action()
      *
-     * @since 3.0.0
+     * @since 3.3.4
      */
     public function buildTerms()
     {
-        //Admin panel
-        if (!TTO_IS_ADMIN) {
-            return;
-        }
-
         //Check if we are in admin panel
         if (empty($this->terms)) {
             return;

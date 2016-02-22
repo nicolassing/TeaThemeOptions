@@ -25,7 +25,7 @@ if (!defined('TTO_CONTEXT')) {
  * @package Tea Theme Options
  * @subpackage Core\Term\Term
  * @author Achraf Chouk <achrafchouk@gmail.com>
- * @since 3.3.0
+ * @since 3.3.4
  *
  */
 class Term
@@ -38,7 +38,7 @@ class Term
     /**
      * Constructor.
      *
-     * @since 3.3.0
+     * @since 3.3.4
      */
     public function __construct()
     {
@@ -46,14 +46,16 @@ class Term
         $this->engine = new Engine();
 
         //Hooks
-        add_filter('tto_template_footer_urls', function ($urls, $identifier) {
-            return array_merge($urls, array(
-                'terms' => array(
-                    'url' => admin_url('admin.php?page='.$identifier.'&do=tto-action&from=footer&make=terms'),
-                    'label' => TeaThemeOptions::__('terms'),
-                )
-            ));
-        }, 10, 2);
+        if (TTO_IS_ADMIN) {
+            add_filter('tto_template_footer_urls', function ($urls, $identifier) {
+                return array_merge($urls, array(
+                    'terms' => array(
+                        'url' => admin_url('admin.php?page='.$identifier.'&do=tto-action&from=footer&make=terms'),
+                        'label' => TeaThemeOptions::__('terms'),
+                    )
+                ));
+            }, 10, 2);
+        }
     }
 
     /**
@@ -61,30 +63,20 @@ class Term
      *
      * @param array $configs Array containing all configurations
      *
-     * @since 3.3.0
+     * @since 3.3.4
      */
     public function addTerm($configs = array())
     {
-        //Admin panel
-        if (!TTO_IS_ADMIN) {
-            return;
-        }
-
         $this->engine->addTerm($configs);
     }
 
     /**
      * Register terms.
      *
-     * @since 3.3.0
+     * @since 3.3.4
      */
     public function buildTerms()
     {
-        //Admin panel
-        if (!TTO_IS_ADMIN) {
-            return;
-        }
-
         $this->engine->buildTerms();
     }
 }

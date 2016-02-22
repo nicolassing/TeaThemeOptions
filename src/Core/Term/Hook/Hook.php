@@ -26,7 +26,7 @@ if (!defined('TTO_CONTEXT')) {
  * @package Tea Theme Options
  * @subpackage Core\Term\Hook\Hook
  * @author Achraf Chouk <achrafchouk@gmail.com>
- * @since 3.2.4
+ * @since 3.3.4
  *
  */
 class Hook
@@ -410,7 +410,7 @@ class Hook
      * @param array $terms Contains all terms.
      * @uses add_action()
      *
-     * @since 3.3.0
+     * @since 3.3.4
      */
     public function setTerms($terms)
     {
@@ -468,11 +468,14 @@ class Hook
                 $this->terms[$term['slug']] = $t[0];
             }
 
-            //Update DB
-            TeaThemeOptions::setConfigs(Engine::getIndex(), $this->terms);
+            //Admin oanel
+            if (TTO_IS_ADMIN) {
+                //Update DB
+                TeaThemeOptions::setConfigs(Engine::getIndex(), $this->terms);
 
-            //Flush all rewrite rules
-            flush_rewrite_rules();
+                //Flush all rewrite rules
+                flush_rewrite_rules();
+            }
         }, 10, 1);
     }
 }
