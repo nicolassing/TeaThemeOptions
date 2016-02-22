@@ -12,7 +12,7 @@ use crewstyle\TeaThemeOptions\Core\Translate\Translate;
  * TEA THEME OPTIONS
  *
  * Plugin Name: Tea Theme Options
- * Version: 3.3.4
+ * Version: 3.3.5
  * Snippet URI: https://github.com/crewstyle/TeaThemeOptions
  * Read The Doc: http://tea-theme-options.readme.io/
  * Description: The Tea Theme Options (or "Tea TO") allows you to easily add
@@ -59,7 +59,7 @@ defined('TTO_CONTEXT')      or define('TTO_CONTEXT', 'tea-theme-options');
 //The value defining if we are in admin panel or not
 defined('TTO_IS_ADMIN')     or define('TTO_IS_ADMIN', is_admin());
 //The current version
-defined('TTO_VERSION')      or define('TTO_VERSION', '3.3.4');
+defined('TTO_VERSION')      or define('TTO_VERSION', '3.3.5');
 //The current baseline
 defined('TTO_QUOTE')        or define('TTO_QUOTE', 'Spartans! Ready your breakfast and eat hearty... For tonight, we dine in hell! ~ 300');
 //The current version
@@ -98,7 +98,7 @@ defined('TTO_WP_CAP_MAX')   or define('TTO_WP_CAP_MAX', 'manage_tea_theme_option
  *
  * @package Tea Theme Options
  * @author Achraf Chouk <achrafchouk@gmail.com>
- * @since 3.3.0
+ * @since 3.3.5
  *
  * @todo Special field:     Typeahead
  * @todo Shortcodes panel:  Youtube, Vimeo, Dailymotion, Embed PDF,
@@ -164,15 +164,10 @@ class TeaThemeOptions
      *
      * @param array $configs Array containing all configurations
      *
-     * @since 3.3.0
+     * @since 3.3.5
      */
     public function addPostType($configs = array())
     {
-        //Admin panel
-        if (!TTO_IS_ADMIN) {
-            return;
-        }
-
         $this->core->getCoreMenu()->getPosttype()->addPostType($configs);
     }
 
@@ -181,15 +176,10 @@ class TeaThemeOptions
      *
      * @param array $configs Array containing all configurations
      *
-     * @since 3.3.0
+     * @since 3.3.5
      */
     public function addTerm($configs = array())
     {
-        //Admin panel
-        if (!TTO_IS_ADMIN) {
-            return;
-        }
-
         $this->core->getCoreMenu()->getTerm()->addTerm($configs);
     }
 
@@ -211,30 +201,20 @@ class TeaThemeOptions
     /**
      * Build post types.
      *
-     * @since 3.3.0
+     * @since 3.3.5
      */
     public function buildPostTypes()
     {
-        //Admin panel and if we can build
-        if (!TTO_IS_ADMIN) {
-            return;
-        }
-
         $this->core->getCoreMenu()->getPosttype()->buildPostTypes();
     }
 
     /**
      * Build terms.
      *
-     * @since 3.3.0
+     * @since 3.3.5
      */
     public function buildTerms()
     {
-        //Admin panel and if we can build
-        if (!TTO_IS_ADMIN) {
-            return;
-        }
-
         $this->core->getCoreMenu()->getTerm()->buildTerms();
     }
 

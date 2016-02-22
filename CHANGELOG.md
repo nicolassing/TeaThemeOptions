@@ -1,3 +1,6 @@
+## 3.3.5 (February 22, 2016)
+Fix bug on enabling posttypes and terms on frontend website.
+
 ## 3.3.4 (February 22, 2016)
 Enable hook on frontend website.
 

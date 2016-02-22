@@ -92,15 +92,10 @@ class Core
      *
      * @return Menu $menu
      *
-     * @since 3.3.0
+     * @since 3.3.5
      */
     public function getCoreMenu()
     {
-        //Admin panel
-        if (!TTO_IS_ADMIN) {
-            return;
-        }
-
         return $this->menu;
     }
 
