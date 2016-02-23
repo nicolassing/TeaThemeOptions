@@ -24,7 +24,7 @@ if (!defined('TTO_CONTEXT')) {
  * @package Tea Theme Options
  * @subpackage Core\Term\Engine\Engine
  * @author Achraf Chouk <achrafchouk@gmail.com>
- * @since 3.3.4
+ * @since 3.3.6
  *
  */
 class Engine
@@ -52,12 +52,11 @@ class Engine
     /**
      * Constructor.
      *
-     * @since 3.3.0
+     * @since 3.3.6
      */
     public function __construct()
     {
         //Initialize all default configurations
-        $this->terms = TeaThemeOptions::getConfigs(self::getIndex());
         $this->hook = new Hook();
     }
 

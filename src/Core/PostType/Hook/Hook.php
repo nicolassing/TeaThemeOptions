@@ -25,7 +25,7 @@ if (!defined('TTO_CONTEXT')) {
  * @package Tea Theme Options
  * @subpackage Core\PostType\Hook\Hook
  * @author Achraf Chouk <achrafchouk@gmail.com>
- * @since 3.3.3
+ * @since 3.3.6
  *
  */
 class Hook
@@ -425,7 +425,7 @@ class Hook
      * @param boolean $leavename Defeine wether to use postname or not
      * @return string $permalink Permalink final structure
      *
-     * @since 3.0.0
+     * @since 3.3.6
      */
     public function hookPermalinkMake($permalink, $post_id, $leavename)
     {
@@ -508,6 +508,28 @@ class Hook
 
         //Change structure
         $permalink = str_replace($rewritecode, $rewritereplace, $permalink);
+
+        //Check custom post type with custom taxonomy
+        if (!in_array($post->post_type, array('post', 'page'))) {
+            $taxs = get_object_taxonomies($post->post_type);
+
+            if (!empty($taxs)) {
+                foreach ($taxs as $tax) {
+                    $terms = get_the_terms($post->ID, $tax);
+
+                    //Check terms
+                    if (!$terms) {
+                        continue;
+                    }
+
+                    //Sort all
+                    usort($terms, '_usort_terms_by_ID');
+
+                    //Update permalink
+                    $permalink = str_replace('%'.$tax.'%', $terms[0]->slug, $permalink);
+                }
+            }
+        }
 
         //Return permalink
         return $permalink;
@@ -618,7 +640,7 @@ class Hook
      * @param array $pts Contains all post types.
      * @uses add_action()
      *
-     * @since 3.3.0
+     * @since 3.3.6
      */
     public function setPostTypes($pts)
     {
@@ -654,7 +676,9 @@ class Hook
             }
 
             //Update DB
-            TeaThemeOptions::setConfigs(Engine::getIndex(), $this->posttypes);
+            if (TTO_IS_ADMIN) {
+                TeaThemeOptions::setConfigs(Engine::getIndex(), $this->posttypes);
+            }
 
             //Permalink structures
             add_action('post_type_link', array(&$this, 'hookPermalinkMake'), 10, 3);

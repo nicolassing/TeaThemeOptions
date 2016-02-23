@@ -25,7 +25,7 @@ if (!defined('TTO_CONTEXT')) {
  * @package Tea Theme Options
  * @subpackage Core\PostType\PostType
  * @author Achraf Chouk <achrafchouk@gmail.com>
- * @since 3.3.0
+ * @since 3.3.6
  *
  */
 class PostType
@@ -38,7 +38,7 @@ class PostType
     /**
      * Constructor.
      *
-     * @since 3.3.0
+     * @since 3.3.6
      */
     public function __construct()
     {
@@ -46,14 +46,16 @@ class PostType
         $this->engine = new Engine();
 
         //Hooks
-        add_filter('tto_template_footer_urls', function ($urls, $identifier) {
-            return array_merge($urls, array(
-                'posttypes' => array(
-                    'url' => admin_url('admin.php?page='.$identifier.'&do=tto-action&from=footer&make=posttypes'),
-                    'label' => TeaThemeOptions::__('post types'),
-                )
-            ));
-        }, 10, 2);
+        if (TTO_IS_ADMIN) {
+            add_filter('tto_template_footer_urls', function ($urls, $identifier) {
+                return array_merge($urls, array(
+                    'posttypes' => array(
+                        'url' => admin_url('admin.php?page='.$identifier.'&do=tto-action&from=footer&make=posttypes'),
+                        'label' => TeaThemeOptions::__('post types'),
+                    )
+                ));
+            }, 10, 2);
+        }
     }
 
     /**
@@ -61,30 +63,20 @@ class PostType
      *
      * @param array $configs Array containing all configurations
      *
-     * @since 3.3.0
+     * @since 3.3.6
      */
     public function addPostType($configs = array())
     {
-        //Admin panel
-        if (!TTO_IS_ADMIN) {
-            return;
-        }
-
         $this->engine->addPostType($configs);
     }
 
     /**
      * Register post types.
      *
-     * @since 3.3.0
+     * @since 3.3.6
      */
     public function buildPostTypes()
     {
-        //Admin panel
-        if (!TTO_IS_ADMIN) {
-            return;
-        }
-
         $this->engine->buildPostTypes();
     }
 }

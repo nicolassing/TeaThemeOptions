@@ -12,7 +12,7 @@ use crewstyle\TeaThemeOptions\Core\Translate\Translate;
  * TEA THEME OPTIONS
  *
  * Plugin Name: Tea Theme Options
- * Version: 3.3.5
+ * Version: 3.3.6
  * Snippet URI: https://github.com/crewstyle/TeaThemeOptions
  * Read The Doc: http://tea-theme-options.readme.io/
  * Description: The Tea Theme Options (or "Tea TO") allows you to easily add
@@ -59,7 +59,7 @@ defined('TTO_CONTEXT')      or define('TTO_CONTEXT', 'tea-theme-options');
 //The value defining if we are in admin panel or not
 defined('TTO_IS_ADMIN')     or define('TTO_IS_ADMIN', is_admin());
 //The current version
-defined('TTO_VERSION')      or define('TTO_VERSION', '3.3.5');
+defined('TTO_VERSION')      or define('TTO_VERSION', '3.3.6');
 //The current baseline
 defined('TTO_QUOTE')        or define('TTO_QUOTE', 'Spartans! Ready your breakfast and eat hearty... For tonight, we dine in hell! ~ 300');
 //The current version
@@ -98,7 +98,7 @@ defined('TTO_WP_CAP_MAX')   or define('TTO_WP_CAP_MAX', 'manage_tea_theme_option
  *
  * @package Tea Theme Options
  * @author Achraf Chouk <achrafchouk@gmail.com>
- * @since 3.3.5
+ * @since 3.3.6
  *
  * @todo Special field:     Typeahead
  * @todo Shortcodes panel:  Youtube, Vimeo, Dailymotion, Embed PDF,
@@ -130,13 +130,13 @@ class TeaThemeOptions
      * @param string $content Contains typo to translate
      * @return Translate
      *
-     * @since 3.3.0
+     * @since 3.3.6
      */
     public static function __($content)
     {
         //Admin panel
         if (!TTO_IS_ADMIN) {
-            return;
+            return '';
         }
 
         return (string) Translate::__($content);
@@ -225,16 +225,14 @@ class TeaThemeOptions
      * @param string $content Contains typo to display
      * @return string $content
      *
-     * @since 3.3.0
+     * @since 3.3.6
      */
     public static function notify($type, $content)
     {
         //Admin panel
-        if (!TTO_IS_ADMIN) {
-            return;
+        if (TTO_IS_ADMIN) {
+            Notification::notify($type, $content);
         }
-
-        Notification::notify($type, $content);
     }
 
     /**
@@ -355,15 +353,10 @@ class TeaThemeOptions
      * @param string $separator Character used to separate each word
      * @return string $slugified Slugified string
      *
-     * @since 3.1.0
+     * @since 3.3.6
      */
     public static function getUrlize($text, $separator = '-')
     {
-        //Admin panel
-        if (!TTO_IS_ADMIN) {
-            return;
-        }
-
         return Render::urlize($text, $separator);
     }
 }
