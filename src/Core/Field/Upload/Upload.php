@@ -36,7 +36,7 @@ if (!defined('TTO_CONTEXT')) {
  * @package Tea Theme Options
  * @subpackage Core\Field\Upload
  * @author Achraf Chouk <achrafchouk@gmail.com>
- * @since 3.3.0
+ * @since 3.3.7
  *
  */
 class Upload extends Field
@@ -59,7 +59,7 @@ class Upload extends Field
      * @param array $content Contains all field data
      * @param array $details Contains all field options
      *
-     * @since 3.2.3
+     * @since 3.3.7
      */
     public function prepareField($content, $details = array())
     {
@@ -105,7 +105,7 @@ class Upload extends Field
         $template['t_caption'] = !empty($template['caption']) ? $template['caption'] : TeaThemeOptions::__('Caption');
 
         //Retrieve field value
-        $template['val'] = $this->getFieldValue($details, $template['default'], $content['id'], true);
+        $template['val'] = $this->getFieldValue($details, $template['default'], $content['id']);
 
         //Get template
         return $this->renderField('fields/upload.html.twig', $template);

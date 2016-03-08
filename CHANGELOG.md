@@ -1,4 +1,7 @@
-## 3.3.5 (February 23, 2016)
+## 3.3.7 (March 08, 2016)
+Fix bug on <Upload> field.
+
+## 3.3.6 (February 23, 2016)
 Fix bug with Post type permalinks.
 
 ## 3.3.5 (February 22, 2016)
