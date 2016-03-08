@@ -30,8 +30,8 @@
                             <input type="checkbox" name="{{ id }}[{{ k }}]" id="{{ for }}" value="1"{{ selected ? ' checked="checked"' : '' }} />
 
                             {% if mode == 'image' %}
-                                <img src="{{ k }}" alt="" />
-                                <span>{{ option|raw }}</span>
+                                <img src="{{ option }}" alt="" />
+                                <span>{{ k|raw }}</span>
                             {% else %}
                                 {{ option|raw }}
                             {% endif %}

@@ -12,7 +12,7 @@ use crewstyle\TeaThemeOptions\Core\Translate\Translate;
  * TEA THEME OPTIONS
  *
  * Plugin Name: Tea Theme Options
- * Version: 3.3.7
+ * Version: 3.3.8
  * Snippet URI: https://github.com/crewstyle/TeaThemeOptions
  * Read The Doc: http://tea-theme-options.readme.io/
  * Description: The Tea Theme Options (or "Tea TO") allows you to easily add
@@ -59,7 +59,7 @@ defined('TTO_CONTEXT')      or define('TTO_CONTEXT', 'tea-theme-options');
 //The value defining if we are in admin panel or not
 defined('TTO_IS_ADMIN')     or define('TTO_IS_ADMIN', is_admin());
 //The current version
-defined('TTO_VERSION')      or define('TTO_VERSION', '3.3.7');
+defined('TTO_VERSION')      or define('TTO_VERSION', '3.3.8');
 //The current baseline
 defined('TTO_QUOTE')        or define('TTO_QUOTE', 'Spartans! Ready your breakfast and eat hearty... For tonight, we dine in hell! ~ 300');
 //The current version

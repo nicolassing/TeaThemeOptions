@@ -1,3 +1,6 @@
+## 3.3.8 (March 08, 2016)
+Fix bug on <Checkbox> image mode display.
+
 ## 3.3.7 (March 08, 2016)
 Fix bug on <Upload> field.
 
