@@ -5,7 +5,7 @@ namespace crewstyle\TeaThemeOptions\Plugins\Search\Elastica;
 use Elastica\Client;
 use Elastica\Document;
 use Elastica\Exception\NotFoundException;
-use Elastica\Filter\Bool;
+use Elastica\Query\BoolQuery;
 use Elastica\Filter\Term;
 use Elastica\Query;
 use Elastica\Query\QueryString;
@@ -898,7 +898,7 @@ class Elastica
         $es_term->setTerm($type . '.parent', $parent);
 
         //Filter 'And'
-        $es_filter = new Bool();
+        $es_filter = new BoolQuery();
         $es_filter->addMust($es_term);
 
         //Add filter to the search object
